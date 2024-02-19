@@ -1,25 +1,28 @@
 # coraZ7-07s
 an example build for the digilent cora z7-07s fpga board using vivado, vitis, and petalinux put together because the official project wouldnt work (I still do not know why- possibly due to old versioning of petalinux and ubuntu host).
 
+## versions
 vivado 2022.1
 
 vitis 2022.1
 
 petalinux 2023.1
 
-Using walkthough:
+## helpful walkthroughs:
 
 https://www.youtube.com/watch?v=KQx3m-WqkB4
 
 https://community.element14.com/members-area/personalblogs/b/blog/posts/getting-started-with-the-cora-z7-board---a-step-by-step-guide-to-creating-a-sdk-project
 (This build does not paste in the example code as shown in these links)
 
-NOTES:
+## NOTES:
 - vivado/vitis on windows 10 pro
 - petalinux on wsl ubuntu 22.04
 - vivado does not support paths with spaces
 - vivado does not support UNC paths so the vivado directory cannot exist in wsl home
 - be sure to have the boot-mode jumper in the correct position when running debug (or when booting off sd image)
+
+## creating petalinux env (after exporting xsa)
 
 petalinux cmds used to create project from xsa (see UG1144 for details):
 - `petalinux-create --type project --template zynq --name petalinux`
@@ -82,3 +85,15 @@ make sure mode jumper is in place, insert sd card, and watch console output whil
 PetaLinux 2023.1+release-S05010539 petalinux ttyPS0
 petalinux login: petalinux
 ``` 
+
+## adding apps to linux
+
+- nano
+	- search for existing app's bitbake resipe:
+		- `petalinux-devtool find-recipe nano`
+	- add `CONFIG_nano` to `project-spec/meta-user/conf/user-rootfsconfig` file
+	- `petalinux-config -c rootfs` user-packages>nano(check)
+	- `petalinux-build`
+	- `petalinux-package --boot --u-boot --fpga --kernel --force`
+	- `petalinux-package --wic`
+
