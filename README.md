@@ -32,9 +32,9 @@ petalinux cmds used to create project from xsa (see UG1144 for details):
 	- this will take a while and if you have a single-cpu coraZ7-07s it will error out due to a device tree file containing information about the second cpu (which doesnt exist).
 	- error indicating this includes: `/path/to/proj/coraZ7-07s/petalinux/components/plnx_workspace/device-tree/device-tree/zynq-7000.dtsi:552.16-565.5: ERROR (phandle_references): /axi/ptm@f889d000: Reference to non-existent node or label "cpu1"`
 
-you need to edit `/path/to/proj/coraZ7-07s/petalinux/components/plnx_workspace/device-tree/device-tree/zynq-7000.dtsi` as follows
+you need to edit `coraZ7-07s/petalinux/components/plnx_workspace/device-tree/device-tree/zynq-7000.dtsi` as follows
 
-`nano /path/to/proj/coraZ7-07s/petalinux/components/plnx_workspace/device-tree/device-tree/zynq-7000.dtsi`
+`nano coraZ7-07s/petalinux/components/plnx_workspace/device-tree/device-tree/zynq-7000.dtsi`
 find the entry for cpu1:
 ```
                 cpu1: cpu@1 {
