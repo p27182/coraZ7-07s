@@ -22,6 +22,32 @@ https://community.element14.com/members-area/personalblogs/b/blog/posts/getting-
 - vivado does not support UNC paths so the vivado directory cannot exist in wsl home
 - be sure to have the boot-mode jumper in the correct position when running debug (or when booting off sd image)
 
+## petalinux dependencies
+
+ran these in chunks to assess any issues...
+```
+sudo dpkg --add-architecture i386
+Sudo dpkg-reconfigure locales (generate all of em because yolo)
+sudo apt-get install gparted xinetd gawk gcc net-tools ncurses-dev openssl libssl-dev flex bison xterm autoconf libtool texinfo zlib1g-dev
+sudo apt-get install iproute2 make libncurses5-dev tftpd libselinux1 wget diffstat chrpath socat tar unzip gzip python2 tofrodos lsb libftdi1 libftdi1-2
+sudo apt install python3-pip
+pip install pylint #(sudo? Try without first) may need: pip3 install pylint
+sudo apt-get install debianutils iputils-ping libegl1-mesa libsdl1.2-dev python3 cpio tftpd-hpa gnupg zlib1g:i386 haveged perl xvfb
+sudo apt-get install gcc-multilib build-essential automake screen putty pax g++ python3-pip xz-utils python3-git python3-jinja2 python3-pexpect
+sudo apt-get install liberror-perl mtd-utils xtrans-dev libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev
+sudo apt-get install util-linux sysvinit-utils cython3 google-perftools patch diffutils ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
+sudo apt-get install libncurses5 libncurses5-dev libncursesw5:amd64 libncursesw5-dev libncurses5:i386 libtinfo5 libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
+```
+Installing in homedir:
+(bash-only! Not zsh!)
+```
+INSTALL_DIR=/home/pat/petalinux/2023.2/
+bash ./petalinux-$VERSION-installer.run - $INSTALL_DIR
+```
+
+I also discovered that the settings ($INSTALL_DIR/settings.sh) file to be sourced has an issue with zsh, but if you edit the way the script grabs the working directory when sourced everything seems to run in zsh just fine.
+
+
 ## creating petalinux env (after exporting xsa)
 
 petalinux cmds used to create project from xsa (see UG1144 for details):
