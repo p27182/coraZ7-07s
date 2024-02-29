@@ -468,7 +468,7 @@ CONFIG_can-utils=y
 #
 # curl 
 #
-# CONFIG_curl is not set
+CONFIG_curl=y
 # CONFIG_curl-dev is not set
 # CONFIG_libcurl is not set
 # CONFIG_curl-dbg is not set
@@ -483,7 +483,7 @@ CONFIG_can-utils=y
 #
 # ethtool 
 #
-# CONFIG_ethtool is not set
+CONFIG_ethtool=y
 # CONFIG_ethtool-dbg is not set
 # CONFIG_ethtool-dev is not set
 
@@ -549,7 +549,7 @@ CONFIG_nfs-utils=y
 #
 # rsync 
 #
-# CONFIG_rsync is not set
+CONFIG_rsync=y
 # CONFIG_rsync-dev is not set
 # CONFIG_rsync-dbg is not set
 
@@ -578,7 +578,7 @@ CONFIG_nfs-utils=y
 #
 # wget 
 #
-# CONFIG_wget is not set
+CONFIG_wget=y
 # CONFIG_wget-dev is not set
 # CONFIG_wget-dbg is not set
 
@@ -2397,7 +2397,7 @@ CONFIG_linux-xlnx-udev-rules=y
 #
 # net-tools 
 #
-# CONFIG_net-tools is not set
+CONFIG_net-tools=y
 # CONFIG_net-tools-dbg is not set
 # CONFIG_net-tools-dev is not set
 
@@ -2593,7 +2593,7 @@ CONFIG_packagegroup-core-boot=y
 #
 # python3 
 #
-# CONFIG_python3 is not set
+CONFIG_python3=y
 # CONFIG_python3-smtpd is not set
 # CONFIG_python3-syslog is not set
 # CONFIG_python3-pickle is not set
@@ -3251,7 +3251,7 @@ CONFIG_bridge-utils=y
 #
 # tcpdump 
 #
-# CONFIG_tcpdump is not set
+CONFIG_tcpdump=y
 # CONFIG_tcpdump-dbg is not set
 # CONFIG_tcpdump-dev is not set
 
@@ -3828,7 +3828,9 @@ CONFIG_u-boot-tools=y
 # CONFIG_imagefeature-ssh-server-dropbear is not set
 CONFIG_imagefeature-ssh-server-openssh=y
 CONFIG_imagefeature-hwcodecs=y
-# CONFIG_imagefeature-package-management is not set
+CONFIG_imagefeature-package-management=y
+CONFIG_package-feed-uris=""
+CONFIG_package-feed-archs=""
 # CONFIG_imagefeature-debug-tweaks is not set
 # CONFIG_imagefeature-empty-root-password is not set
 # CONFIG_imagefeature-serial-autologin-root is not set
@@ -3839,6 +3841,7 @@ CONFIG_Init-manager-sysvinit=y
 # user packages 
 #
 # CONFIG_gpio-demo is not set
+CONFIG_nano=y
 # CONFIG_peekpoke is not set
 
 #
