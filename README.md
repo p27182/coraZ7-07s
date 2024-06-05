@@ -23,6 +23,7 @@ https://www.adiuvoengineering.com/post/microzed-chronicles-petalinux-i2c-in-the-
 - vivado does not support paths with spaces
 - vivado does not support UNC paths so the vivado directory cannot exist in wsl home
 - be sure to have the boot-mode jumper in the correct position when running debug (or when booting off sd image)
+- for sd boot make sure petalinux-config >> Image Packaging Configuration >> Root Filesystem type : EXT4 SD/eMMC/SATA/USB
 
 ## petalinux dependencies
 
